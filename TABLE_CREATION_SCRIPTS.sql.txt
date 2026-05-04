@@ -1,0 +1,31 @@
+-- TABLE CREATION SCRIPTS
+-- Telco Project - i2i Systems Internship
+
+-- TARIFFS table: Stores tariff plans with their limits and fees
+CREATE TABLE TARIFFS (
+    TARIFF_ID NUMBER PRIMARY KEY,
+    NAME VARCHAR2(100) NOT NULL,
+    MONTHLY_FEE NUMBER(10,2),
+    DATA_LIMIT NUMBER,
+    MINUTE_LIMIT NUMBER,
+    SMS_LIMIT NUMBER
+);
+
+-- CUSTOMERS table: Stores customer information and their subscribed tariff
+CREATE TABLE CUSTOMERS (
+    CUSTOMER_ID NUMBER PRIMARY KEY,
+    NAME VARCHAR2(100),
+    CITY VARCHAR2(100),
+    SIGNUP_DATE DATE,
+    TARIFF_ID NUMBER
+);
+
+-- MONTHLY_STATS table: Stores monthly usage and payment data per customer
+CREATE TABLE MONTHLY_STATS (
+    ID NUMBER PRIMARY KEY,
+    CUSTOMER_ID NUMBER,
+    DATA_USAGE NUMBER,
+    MINUTE_USAGE NUMBER,
+    SMS_USAGE NUMBER,
+    PAYMENT_STATUS VARCHAR2(50)
+);
